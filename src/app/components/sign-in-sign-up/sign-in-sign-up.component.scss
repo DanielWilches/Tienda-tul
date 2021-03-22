@@ -1,0 +1,167 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/minxin';
+
+.fondo-ingreso {
+  @include overlay;
+  justify-content: center;
+}
+
+.container-ingreso {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  margin: 15px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-family: $Ffamily;
+  background-color: white;
+  border-radius: 6px;
+  position: relative;
+}
+
+.container-ingreso--logo {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin: 10px 0;
+
+  h2 {
+    font-size: 25px;
+    color: $colorfuente;
+    margin-right: 15px;
+    transition: all .2s ease;
+
+    @media screen and (max-width:500px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.container-ingreso--logo__img {
+  width: 50px;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.container-ingreso__formulario {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  input {
+    width: 100%;
+    height: 30px;
+    margin: 10px auto;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+  transition: all .1s ease;
+    &:focus {
+      border-bottom: 2px solid $colorSecundary;
+    }
+  }
+
+  button {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+    margin: 10px 0;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    background-color: $colorSecundary;
+    color: white;
+    cursor: pointer;
+    transition: all .2s ease;
+
+    &:active {
+      transform: scale(.9);
+    }
+  }
+
+  .ingresar {
+    background-color: transparent;
+    color: $colorSecundary;
+    border: 2px solid $colorSecundary;
+
+    &:active {
+      background-color: $colorSecundary;
+      color: white;
+    }
+  }
+}
+.ingreso--formulario__info{
+  position: relative;
+  width: 100%;
+  min-height: 30px;
+  height: auto;
+  // border: 1px solid black;
+
+    p {
+      top: 0;
+      left:0;
+      position: absolute;
+      padding-left: 10px;
+      color: $danger;
+      font-size: 16px;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+}
+
+.btn-opacity{
+  opacity: .5;
+}
+.container-ingreso__close {
+  @include closeBtn($danger, -2%, -2%);
+}
+
+.in-log{
+  @include in-modal;
+}
+.out-log  {
+  @include out-modal;
+}
+.overly-hidden {
+  @include overly-hidden;
+}
+.overly-active {
+  @include overly-active;
+}
+
+.alert_login{
+  @include alert;
+  background-color: $danger;
+}
+
+.in-alert {
+  @include in-alert;
+
+}
+
+.out-alert {
+  @include out-alert;
+}
+
+.in-text{
+  animation: in-text 1s ease forwards;
+}
+.out-text{
+  animation: out-text 1s ease forwards;
+}

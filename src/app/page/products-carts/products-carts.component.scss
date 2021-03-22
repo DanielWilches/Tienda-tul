@@ -1,0 +1,154 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/minxin';
+
+.fondo--card_product {
+  @include overlay;
+}
+
+.container-list-carrito {
+  // opacity: 0;
+  width: 100%;
+  max-width: 900px;
+  // margin: 0px auto;
+  padding: 20px 10px;
+  border-radius: 6px;
+  height: auto;
+  max-height: 87vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+
+  background-color: white;
+  font-family: $Ffamily;
+  justify-content: space-between;
+
+
+  h2 {
+    font-size: 30px;
+    text-transform: capitalize;
+    margin: 10px auto;
+    padding: 5px 0;
+  }
+
+
+
+}
+
+.continer--list__items {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.container-list-carrito--item {
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+  max-width: 700px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+
+
+  button {
+    @include button;
+    border: 2px solid red;
+    color: red;
+    background-color: transparent;
+    align-self: flex-end;
+
+    &:active {
+      color: white;
+      background-color: red;
+    }
+  }
+
+}
+
+.item--info__id,
+.item--info__cantidad {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  @media screen and (max-width:570px) {
+    flex-direction: column;
+
+  }
+
+  p {
+    margin: 5px;
+    padding: 5px;
+    text-transform: capitalize;
+  }
+}
+
+.container-list-carrito--item__btns {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 700px) {
+    justify-content: center;
+  }
+
+  button {
+    @include button;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    &:first-child {
+      background-color: white;
+      color: $colorSecundary;
+      transition: all .2s ease;
+      border: 2px solid $colorSecundary;
+
+      &:active {
+        color: white;
+        background-color: $colorSecundary;
+      }
+    }
+
+  }
+}
+
+.product-alert {
+  @include alert;
+}
+
+.in-alert {
+  @include in-alert;
+
+}
+.out-alert{
+  @include out-alert;
+}
+
+.overly-hidden {
+  @include overly-hidden;
+}
+
+.overly-active {
+  @include overly-active;
+}
+
+.in-modal {
+  @include in-modal;
+}
+
+.out-modal {
+  @include out-modal;
+}
+
+.close-products {
+  @include closeBtn(red, -2%, -1%);
+
+}

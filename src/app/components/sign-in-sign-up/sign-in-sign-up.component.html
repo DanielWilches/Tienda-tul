@@ -1,0 +1,39 @@
+<div [ngClass]="{'overly-active': activateM, 'overly-hidden': !activateM}" class="fondo-ingreso">
+  <section [ngClass]="{'in-log': activateM,'out-log': !activateM}" class="container-ingreso">
+    <div class="container-ingreso--logo">
+      <h2> sing-in / sing-up </h2>
+      <div class="container-ingreso--logo__img">
+        <img src="../../../assets/Icono_tul_color.png" alt="icono">
+      </div>
+    </div>
+
+    <form [formGroup]="formulario" (ngSubmit)="postForm($event)" class="container-ingreso__formulario" novalidate>
+      <input type="email" formControlName="email" placeholder="correo electronico">
+        <div class="ingreso--formulario__info">
+      <!-- <p   [ngClass]="{'in-text': formulario.controls['email'].errors?.required  && formulario.controls['email'].touched, 'out-text': !formulario.controls['email'].errors?.required  && formulario.controls['email'].touched}">Este campo es -->
+      <p  [ngClass]="{'in-text': formulario.controls['email'].errors?.required , 'out-text': !formulario.controls['email'].errors?.required}">Este campo es requerido.</p>
+      <p  [ngClass]="{'in-text': formulario.controls['email'].errors?.email, 'out-text': !formulario.controls['email'].errors?.email}">Este campo requiere un email</p>
+        </div>
+      <input formControlName="password" type="password" placeholder="contraseña">
+      <div class="ingreso--formulario__info">
+      <!-- <p  [ngClass]="{'in-text': formulario.controls['password'].errors?.required && formulario.controls['password'].touched, 'out-text': !formulario.controls['password'].errors?.required && formulario.controls['password'].touched}"   >Este campo es requerido .</p> -->
+      <p  [ngClass]="{'in-text': formulario.controls['password'].errors?.required, 'out-text': !formulario.controls['password'].errors?.required}"   >Este campo es requerido .</p>
+      <p  [ngClass]="{'in-text': formulario.controls['password'].errors?.minlength, 'out-text': !formulario.controls['password'].errors?.minlength}">Este campo debe tener un mínimo de 6.</p>
+      <p  [ngClass]="{'in-text': formulario.controls['password'].errors?.maxlength, 'out-text': !formulario.controls['password'].errors?.maxlength}" >Este campo debe tener un máximo de 10.</p>
+      </div>
+
+      <button id="1" [ngClass]="{'btn-opacity': !formulario.valid}" class="ingresar" type="submit" name="ingresar"
+        [disabled]="!formulario.valid">ingresar</button>
+      <button id="2" [ngClass]="{'btn-opacity': !formulario.valid}" name="crearCuenta" type="submit"
+        [disabled]="!formulario.valid">crear cuenta</button>
+    </form>
+
+    <a class="container-ingreso__close" type="button" (click)="close()">
+      <div></div>
+      <div></div>
+    </a>
+  </section>
+
+  <app-alert [message]="cs.message"></app-alert>
+
+</div>

@@ -1,0 +1,165 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/minxin';
+
+
+.Products {
+  width: 100%;
+  height: auto;
+  margin-top: 140px;
+  // position: relative;
+}
+
+.titulo_productos {
+  font-size: 25px;
+  font-family: $Ffamily;
+  font-weight: 600;
+  width: max-content;
+  max-width: 100%;
+  margin: 15px auto;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.container-productos {
+  width: 100%;
+  height: auto;
+  max-width: 1140px;
+  margin: 15px auto;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: minmax(100px, 1fr);
+  grid-template-columns: minmax(0, 100%);
+  gap: 40px 0px;
+  font-family: $Ffamily;
+  border-radius: 6px;
+  // position: relative;
+}
+
+.container-productos__items {
+  padding: 5px 20px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  box-shadow: 1px 3px 9px 1px rgba(151, 235, 219, 0.63);
+  // max-height: 150px;
+  border-radius: 6px;
+  position: relative;
+
+  button {
+    align-self: flex-end;
+    @include button;
+  }
+}
+
+.con-alert {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+.alert-product {
+  width: 100%;
+  height: auto;
+  max-height: 100px;
+  max-width: max-content;
+  text-align: center;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 0 auto;
+  font-family: $Ffamily;
+  font-size: 20px;
+  background-color: $susses;
+}
+
+.in-alert {
+  @include in-alert;
+}
+
+.out-alert {
+  @include out-alert;
+}
+
+.con-alert-in {
+  animation: con-alert-in 1s ease forwards;
+
+}
+
+.con-alert-out {
+  animation: con-alert-out 1s ease forwards;
+}
+
+.productos--items__info {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  max-width: 900px;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 5px;
+  margin: 5px auto;
+  width: 100%;
+  animation: in-text 1s ease forwards;
+
+  p {
+    width: 100%;
+    padding: 5px;
+    margin: 10px;
+
+    &:nth-child(1) {
+      max-width: max-content;
+    }
+
+    &:nth-child(2) {
+      max-width: max-content;
+      margin-left: auto;
+
+      @media screen and (max-width: 767px) {
+        margin: 10px;
+      }
+    }
+  }
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.container-productos__descripcion {
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  span {
+    font-weight: 700;
+    font-size: 25px;
+    margin: 10px 0;
+    display: block;
+    text-transform: capitalize;
+    text-align: start;
+    width: 100%;
+  }
+
+  blockquote {
+    line-height: 20px;
+    font-size: 18px;
+  }
+
+}

@@ -1,0 +1,122 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/minxin';
+
+.fondo-overly-carts {
+  @include overlay;
+}
+
+.contianer-list-cart {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  font-family: $Ffamily;
+}
+.contianer-list-car__list{
+  max-height: 60vh;
+  overflow: auto;
+  width: 100%;
+}
+
+.contianer-list-cart--items {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 8px 11px 3px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  border-radius: 6px;
+}
+
+.close_btn {
+  @include closeBtn($danger, -3%, -2%);
+}
+
+.contianer-list-cart--items__id {
+  font-size: 20px;
+  padding: 5px;
+  margin: 15px;
+  width: 100%;
+  max-width: 200px;
+  line-height: 35px;
+   span{
+     font-weight: 700;
+   }
+
+}
+
+// closeBtn($bgBtn, $top, $right)
+.contianer-list-cart--items__button{
+  @include button;
+}
+
+.contianer-list-cart--items__status{
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  font-size: 20px;
+  line-height: 35px;
+  span{
+    font-weight: 700;
+  }
+}
+.order_true{
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+  color: $susses;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  &::first-letter{
+    text-transform: uppercase;
+  }
+}
+
+.alert--list-cart{
+  padding: 10px;
+  margin: 10px auto;
+  background-color: $susses;
+  font-size: 20px;
+  font-family: $Ffamily;
+  border-radius: 6px;
+  width: 100%;
+  max-width: max-content;
+  color: white;
+  position: absolute;
+}
+
+
+.in-alert-out{
+  @include in-alert-out;
+}
+
+.in-alert{
+  @include in-alert;
+}
+
+.out-alert{
+  @include out-alert;
+}
+.in-modal{
+  @include in-modal;
+}
+.out-modal{
+  @include out-modal;
+}
+
+.overly-hidden{
+  @include overly-hidden;
+}
+.overly-active{
+  @include overly-active;
+}
+

@@ -1,0 +1,172 @@
+$colorfuente:#484848;
+$colorPrimary: #97EBDB;
+$colorSecundary:#52B9A5;
+$danger: #DC3545;
+$susses:#28A745;
+$Ffamily: 'Roboto',
+sans-serif;
+
+@keyframes modal-in {
+  0% {
+    transform: translateY(-3000px);
+  }
+
+  // 25% {
+  //   transform: translateY(100px);
+  // }
+
+  // 50% {
+  //   transform: translateY(25px);
+  // }
+
+  // 75% {
+  //   transform: translateY(10px);
+  // }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes modal-out {
+  0% {
+    transform: translateY(0px);
+  }
+
+  // 25% {
+  //   transform: translateY(10px);
+  // }
+
+  // 50% {
+  //   transform: translateY(25px);
+  // }
+
+  // 75% {
+  //   transform: translateY(100px);
+
+  // }
+
+  100% {
+    transform: translateY(-3000px);
+
+  }
+}
+
+@keyframes alert-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes in-alert-out {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+
+}
+
+@keyframes alert-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+
+@keyframes in-nav {
+  0% {
+    opacity: 0;
+    transform: translateY(-280px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes out-nav {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-280px);
+  }
+}
+
+@keyframes in-text {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes out-text {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+}
+
+@keyframes con-alert-in {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes con-alert-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

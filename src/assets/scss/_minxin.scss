@@ -1,0 +1,125 @@
+@import '../scss/variables';
+
+@mixin button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  max-width: 280px;
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: $colorSecundary;
+  color: white;
+  border-radius: 6px;
+  transition: all .2s ease;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: capitalize;
+
+  &:active {
+    transform: scale(.9);
+  }
+}
+
+@mixin closeBtn($bgBtn, $top, $right) {
+  width: 40px;
+  height: 40px;
+  background-color: $bgBtn;
+  position: absolute;
+  top: $top;
+  right: $right;
+  border-radius: 50%;
+  transition: all .2s ease;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(.9);
+  }
+
+  div {
+    width: 70%;
+    height: 5px;
+    background-color: white;
+    border-radius: 6px;
+    margin: 0;
+
+    &:first-child {
+      transform: rotate(45deg) translate(17px, 8px);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg) translate(-4px, 13px);
+    }
+  }
+
+}
+
+@mixin alert {
+  width: 100%;
+  height: auto;
+  max-width: max-content;
+  text-align: center;
+  color: white;
+  position: absolute;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 2vh;
+  z-index: 10;
+  font-family: $Ffamily;
+  font-size: 20px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+@mixin in-alert-out {
+  animation: in-alert-out 2s ease forwards;
+}
+@mixin in-alert {
+  animation: alert-in 1s ease forwards;
+}
+
+@mixin out-alert {
+  animation: alert-out 1s ease forwards;
+}
+
+@mixin in-modal {
+  animation: modal-in 1s ease forwards;
+}
+
+@mixin out-modal {
+  // animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation: modal-out 1s ease forwards;
+}
+
+@mixin overly-hidden {
+  opacity: 0;
+  transition: all 1.1s ease;
+  visibility: hidden;
+}
+
+@mixin overly-active {
+  opacity: 1;
+  transition: all 1.1s ease;
+  visibility: visible;
+}
+
+@mixin overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 10px;
+}

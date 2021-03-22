@@ -1,0 +1,24 @@
+<div class="Products">
+  <h2 class="titulo_productos">nuestros productos</h2>
+  <section class="container-productos">
+    <div class="container-productos__items" *ngFor="let producto of cs.productos; let i = index">
+      <div class="productos--items__info" (click)="closeDescription(item)">
+        <p><span>nombre de producto </span>{{ producto.nombre }}</p>
+        <p><span>identificacion de producto </span>{{producto.id}}</p>
+        <p><span>sku </span>{{producto.sku}}</p>
+        <div class="container-productos__descripcion">
+          <span>descripcion:</span>
+          <blockquote>{{producto.descripcion}}</blockquote>
+        </div>
+      </div>
+      <button (click)="addShopping(i)">agrager a carrito</button>
+      <!-- <div [ngClass]="{'in-alert': actAlert, 'out-alert': !actAlert}" class="alert-product">producto agregado</div> -->
+    </div>
+  </section>
+  <!-- <app-alert  [message]="mesagge" ></app-alert> -->
+</div>
+<div  class="con-alert" [ngClass]="{'con-alert-in': actAlert ,'con-alert-out': !actAlert}"  >
+    <div #item  [ngClass]="{'in-actAlert': actAlert ,'out-alert': !actAlert}"  class="alert-product">producto agregado</div>
+</div>
+
+<!-- [ngClass]="{'in-actAlert': actAlert ,'out-alert': !actAlert}" -->

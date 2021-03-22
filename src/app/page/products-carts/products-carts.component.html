@@ -1,0 +1,33 @@
+<div #overlay [ngClass]="{'overly-active': cartActivate, 'overly-hidden': !cartActivate}"   class="fondo--card_product">
+  <section #cardProducts [ngClass]="{'in-modal': cartActivate,'out-modal': !cartActivate}"   class="container-list-carrito">
+    <h2>carrito</h2>
+    <div class="continer--list__items">
+      <div class="container-list-carrito--item" *ngFor="let item of ToS.Products;  let i = index">
+        <div class="item--info__id">
+          <p><span>nombre del producto: </span>{{item.nombre}}</p>
+          <p><span>id del producto: </span>{{item.id}}</p>
+        </div>
+        <div class="item--info__cantidad">
+          <p><span>cantidad: </span>{{item.quantity}}</p>
+          <p><span>sku del producto: </span>{{item.sku}}</p>
+        </div>
+        <button type="button" (click)="deleteProduct(i)">eliminar</button>
+      </div>
+
+    </div>
+
+    <div class="container-list-carrito--item__btns">
+      <button value="guardar"  (click)="setOrden(false, 'guardada')">guardar orden</button>
+      <button (click)="setOrden(true,'generada')">generar orden</button>
+    </div>
+    <a class="close-products"   type="button"  (click)="outModal()">
+      <div></div>
+      <div></div>
+    </a>
+  </section>
+
+    <div [ngClass]="{'in-alert': alertActivated, 'out-alert': !alertActivated}"   #alert  class="product-alert">
+      {{message}}
+    </div>
+
+</div>

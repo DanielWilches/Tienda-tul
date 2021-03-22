@@ -1,0 +1,12 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/minxin';
+
+.container-alert{
+  @include alert;
+}
+.in-alert{
+  @include in-alert;
+}
+.out-alert {
+  @include out-alert;
+}

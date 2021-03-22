@@ -1,0 +1,148 @@
+@import '../assets/scss/variables';
+
+.header {
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+  background-color: $colorPrimary;
+  display: grid;
+  grid-template-columns: minmax(auto, 1fr) minmax(70px, 130px);
+  place-items: center start;
+  place-content: center space-evenly;
+  padding: 0 20px;
+  font-family: $Ffamily;
+  position: fixed;
+  z-index: 7;
+  top: 0px;
+  @media screen  and(max-width: 370px) {
+    padding: 0 10px ;
+  }
+}
+
+.header--logo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+
+  h1 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: $colorfuente;
+    padding-left: 10px;
+    font-size: 28px;
+    transition: all .2s ease;
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-flow: column nowrap;
+
+    h1 {
+      font-size: 20px;
+    }
+  }
+}
+
+.header--logo__img {
+  width: 100px;
+  height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+
+  }
+}
+
+.header--car {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: relative;
+
+  button {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: $colorSecundary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    cursor: pointer;
+  transition: all .2s ease;
+    &:active {
+      transform: scale(.9);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+
+    }
+  }
+}
+
+.main {
+  max-width: 1550px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 15px auto;
+  // position: relative;
+}
+
+.header--car__navegacion{
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  background-color: transparent;
+  position: absolute;
+  border-radius: 6px;
+  top: 80px;
+  right: 20px;
+
+  // box-shadow: -2px 13px 15px -1px rgba(0, 0, 0, 0.41);
+  ul{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    li {
+      width: 100%;
+      color: white;
+      background-color: $colorPrimary;
+      border-radius: 6px;
+      padding: 10px;
+      margin: 5px auto;
+      text-transform: capitalize;
+      max-width: 100%;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s ease;
+      &:active{
+        transform: scale(.9);
+      }
+    }
+  }
+}
+
+.in-nav{
+  animation: in-nav .4s ease forwards;
+}
+.out-nav{
+  animation: out-nav .4s ease forwards;
+}
