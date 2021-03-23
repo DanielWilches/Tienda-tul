@@ -1,7 +1,8 @@
 <div class="fondo-overly-carts"  [ngClass]="{'overly-active': ActivarAni, 'overly-hidden': !ActivarAni}"  >
   <section class="contianer-list-cart"   [ngClass]="{'in-modal': ActivarAni, 'out-modal': !ActivarAni}"  >
     <div class="contianer-list-car__list">
-      <div class="contianer-list-cart--items" *ngFor="let item of Cs.cartsItmes">
+      <h2>ordernes</h2>
+      <div class="contianer-list-cart--items" *ngFor="let item of Cs.cartsItmes;  let i = index">
         <p class="contianer-list-cart--items__id"><span>id de la orden </span>{{item.id}}</p>
         <p class="contianer-list-cart--items__status"><span>estado de la order </span>{{item.status}}</p>
 
@@ -12,7 +13,7 @@
 
 
         <ng-template #falseT>
-          <button type="button" (click)="generarrOrden()" class="contianer-list-cart--items__button">generar
+          <button type="button" (click)="generarrOrden(i)" class="contianer-list-cart--items__button">generar
             order</button>
         </ng-template>
 

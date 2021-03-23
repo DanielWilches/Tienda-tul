@@ -14,18 +14,26 @@
     </button>
     <nav [ngClass]="{'in-nav ': activateMenu, 'out-nav': !activateMenu}" class="header--car__navegacion">
       <ul>
-        <li *ngIf="cS.$actUSU === true"   (click)="activateRegister()"> log-in / sing-in </li>
         <ng-container *ngFor="let user of cS.infoSessionUser">
-          <li *ngIf="user.email"  >{{user.email}}</li>
+        <li   (click)="activateRegister()"> log-in / sing-in </li>
+          <li *ngIf="user.email">
+            <p>
+              {{user.email}}
+            </p>
+          </li>
         </ng-container>
-        <li  (click)="activateCartList()"  >ver ordernes</li>
-        <li  *ngIf="cS.$actUSU === false " (click)="cS.logout()">cerrar seccion</li>
+        <li (click)="activateCartList()">
+          <p>ver ordernes</p>
+        </li>
+        <li (click)="cS.logout()">
+          <p>cerrar seccion</p>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 <main class="main">
-  <app-carts [ActivarAni]="activateC"  (desctivar)="desactiveCart($event)"   ></app-carts>
+  <app-carts [ActivarAni]="activateC" (desctivar)="desactiveCart($event)"></app-carts>
   <app-products-carts [cartActivate]="Activate" (desctivete)="deactivateCart($event)"></app-products-carts>
   <app-sign-in-sign-up [activateM]="activateR" (desactiveM)="desactivedM($event)"></app-sign-in-sign-up>
   <app-products></app-products>

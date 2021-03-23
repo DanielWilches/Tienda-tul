@@ -14,6 +14,20 @@
   border-radius: 6px 6px 0 0;
   position: relative;
   font-family: $Ffamily;
+
+  h2{
+    text-align: center;
+    width: auto;
+    max-width: max-content;
+    font-weight: 600;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 30px;
+    text-transform: capitalize;
+  }
+
+
 }
 .contianer-list-car__list{
   max-height: 60vh;
@@ -36,7 +50,7 @@
 }
 
 .close_btn {
-  @include closeBtn($danger, -3%, -2%);
+  @include closeBtn($danger, -4%, -1%);
 }
 
 .contianer-list-cart--items__id {

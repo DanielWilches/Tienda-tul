@@ -123,16 +123,22 @@
     font-size: 14px;
     li {
       width: 100%;
+      height: auto;
       color: white;
+      max-width: 200px;
       background-color: $colorPrimary;
       border-radius: 6px;
       padding: 10px;
       margin: 5px auto;
       text-transform: capitalize;
-      max-width: 100%;
       text-align: center;
       cursor: pointer;
       transition: all .2s ease;
+      p{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
       &:active{
         transform: scale(.9);
       }

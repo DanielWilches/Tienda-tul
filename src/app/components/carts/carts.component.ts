@@ -1,6 +1,8 @@
+import { from, Observable, of } from 'rxjs';
 import { ConexionService } from './../../services/conexion.service';
 import { Carts } from './../../models/carts';
 import { Component, Input, OnInit, ViewChild, ElementRef, Renderer2, Output, EventEmitter } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-carts',
@@ -19,11 +21,21 @@ export class CartsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  generarrOrden() {
+  generarrOrden(id: number) {
     this.alert = !this.alert;
+    let item: Carts;
     setTimeout(() => {
       this.alert = false;
     }, 2000);
+    console.log(id);
+    let $obs: Observable<Carts> = of(id).pipe(map(resul => {
+      item = { ...this.Cs.cartsItmes[resul] }
+      item.status = true;
+      return item;
+    }));
+    $obs.subscribe(resul => {
+      this.Cs.updateCart(resul, id)
+    });
 
   }
   closeModal() {

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFireAuth } from "@angular/fire/auth";
 import firebase from 'firebase/app';
-import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Observable, BehaviorSubject, combineLatest, pipe, Subscriber } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 // custom
 import { Usuarios } from 'src/app/models/usuarios';
 import { Carts } from './../models/carts';
@@ -44,6 +44,7 @@ export class ConexionService {
     this.getProducts();
     setTimeout(() => {
       this.getCarts();
+      console.log(' se activo get carts')
     }, 3000);
   }
 
@@ -76,12 +77,14 @@ export class ConexionService {
     this.auth.signInWithEmailAndPassword(user.email, user.password)
       .then(resul => {
         // console.log(resul)
+
         this.message = {
           message: `El estado de la cuenta es ${resul.operationType}`,
           bgColor: '#28A745'
         }
         this.inMessage();
         this.addLocalStorage(resul);
+          this.getCarts();
         return this.message;
       })
       .catch(err => {
@@ -194,17 +197,47 @@ export class ConexionService {
       resul.forEach((e, i) => {
         this.Afs.collection<Carts>('carts', ref => ref.where('id_user', '==', e.id)).valueChanges().subscribe(resul => {
           this.cartsItmes = [...resul];
-          console.log(this.cartsItmes)
-
+          // console.log(this.cartsItmes)
         })
       })
     })
   }
 
-  updateCart() {
-    // this.carts
-  }
+  updateCart(item: Carts, id: number) {
+    let $obs;
+    this.getIDUser().subscribe(resul => {
+      console.log(resul)
+      $obs = this.Afs.collection<Carts>('carts', ref => ref.where('id_user', '==', resul[0].id)).snapshotChanges().pipe(map(value => value[id].payload.doc.id)).subscribe(docId => {
+        console.log(docId)
+        this.cartsColletion.doc(docId).update({ status: item.status })
+      })
 
+    })
+    setTimeout(() => {
+      $obs.unsubscribe()
+    }, 1000);
+
+
+    // this.Afs.collection<Carts>('carts', ref => ref.where('id', '==', `${item.id}`)).valueChanges().pipe(map(resul => {
+    //   return resul[0];
+    // } )).subscribe(resul => {
+    //   console.log(resul)
+    // })
+
+
+    // this.cartsColletion.doc('L3mRqG5EsPPuslkQ3wqP').update({
+    //   status : item.status
+    // })
+    //   .then(resul =>{
+    //     console.log(resul)
+    //   })
+    //   .catch(err =>{
+    //     console.log(err)
+    //   })
+    // console.log(item)
+    // this.cartsColletion.doc('L3mRqG5EsPPuslkQ3wqP')
+
+  }
 
 
 
